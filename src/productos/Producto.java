@@ -10,5 +10,5 @@ package productos;
  * @author ltrbomb10
  */
 public class Producto {
-    
+    public String message = "Esta es una prueba de que estas bien pendejo";
 }
