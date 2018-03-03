@@ -10,5 +10,6 @@ package productos;
  * @authors CarlosAranda, Angel Aguila, Carlos Camacho, Jose Armenta
  */
 public class ProductoTest {
+    pelamela();
     
 }
