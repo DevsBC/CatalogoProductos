@@ -11,4 +11,6 @@ package productos;
  */
 public class Producto {
     public String message = "Esta es una prueba de que estas bien pendejo";
+    
+    private double miVerga = 0;
 }
