@@ -14,9 +14,9 @@ import java.util.Scanner;
  */
 public class Producto {
     
-    private String codigo;
-    private String descripcion;
-    private double precio;
+    private static String codigo;
+    private static String descripcion;
+    private static double precio;
     
     Producto() {
         setCodigo("");
@@ -25,8 +25,8 @@ public class Producto {
     }
     
     private static Scanner in =  new Scanner(System.in);
-    private static int cantidadDeElementos;
-    private static File file;
+    private static int[] cantidadDeElementos;
+    private static File file = new File("productos.dat");
     private static DataOutputStream dos;
     private static DataInputStream dis;
     
@@ -58,8 +58,45 @@ public class Producto {
     }
     
     public static void capturarProductos(){
-
+        try {    
+            Producto p = new Producto();
+            int count = 0;
+            String exit = "";
+            String codigo = "";
+            String descripcion = "";
+            int precio = 0;
+            file.createNewFile();
+             
+            dos = new DataOutputStream(
+                  new BufferedOutputStream(
+                  new FileOutputStream(file)));
+            
+            while(!exit.equalsIgnoreCase("S")){
+                System.out.print("Ingrese el codigo: ");
+                codigo = in.next();
+                p.setCodigo(codigo);
+                dos.writeUTF(codigo);
+                System.out.print("Ingrese la descripcion: ");
+                descripcion = in.next();
+                p.setDescripcion(descripcion);
+                System.out.print("Ingrese el precio: ");
+                precio = in.nextInt();
+                p.setPrecio(precio);
+                count++;
+                System.out.print("Ha terminado?(S/N):");
+                exit = in.next();      
+            }
+            cantidadDeElementos = new int[count];
+        
+            System.out.println("Hemos salido");
+            System.out.println("Hay " + count + " productos");
+            
+            dos.close();
+        } catch(IOException e) {
+            
+        }
     }
+    
     
     public static void leerProductos() {
         
