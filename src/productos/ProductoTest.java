@@ -7,7 +7,7 @@ package productos;
 
 /**
  *
- * @authors CarlosAranda, Angel Aguila, Carlos Camacho, Jose Armenta
+ * @author CarlosAranda
  */
 public class ProductoTest {
 
