@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package productos;
 
 import java.io.*;
@@ -13,8 +8,8 @@ import java.util.*;
  * @authors:
  * Juan Carlos Aranda,
  * Luis Angel Aguila, 
- * Carlos Eduardo Camacho,
- * Jose Adolfo Armenta.
+ * Carlos Eduardo Moreno,
+ * Jose Adolfo Chaparro.
  */
 public class Producto {
     
@@ -111,6 +106,11 @@ public class Producto {
                 
                     System.out.print("Ingrese el precio: ");
                     double precio = in.nextDouble();
+                    if(precio < 0) {
+                        System.out.println("Ingrese un valor valido");
+                        System.out.print("Ingrese el precio: ");
+                        precio = in.nextDouble();       
+                    }
                     p.setPrecio(precio);
                     dos.writeDouble(p.getPrecio()); // escribe en archivo
                 
@@ -155,7 +155,7 @@ public class Producto {
                 
                 double precio = dis.readDouble(); // lee del archivo
                 p.setPrecio(precio);
-        
+                      
                 productos.add(p); // agrega el objeto actual al arrayList
             }
             dis.close();
@@ -176,6 +176,6 @@ public class Producto {
     public String toString() {
        return "\nCodigo: " + codigo 
                + "\nDescripcion: " + descripcion 
-               + "\nPrecio: " + precio + "\n";
+               + "\nPrecio: $" + precio +  "\n";
     }
 }
